@@ -1,8 +1,8 @@
-#### This repo contain weights of MobileNetV1, MobileNetV2 models trained on 96x96 greyscale images of ImageNet dataset. suitable for a transfer learning model for image classification, object detection tasks. 
+This repo contain weights of MobileNetV1, MobileNetV2 models trained on 96x96 greyscale images of ImageNet dataset. suitable for a transfer learning model for image classification, object detection tasks. 
 
-#### These are Lightweight, energy efficient and memory efficient models that can be deployed on Edge devices such as Microcontrollers.
+These are Lightweight, energy efficient and memory efficient models that can be deployed on **Edge devices such as Microcontrollers**.
 
-#### How to use with MobileNetV1:
+### Transfer learning with MobileNetV1:
 ```
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import (
@@ -51,7 +51,7 @@ model.compile(loss="categorical_crossentropy",
 model.summary()
 ```
 
-#### How to use with MobileNetV2:
+### Transfer learning with MobileNetV2:
 ```
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import (
@@ -98,4 +98,10 @@ model.compile(loss="categorical_crossentropy",
                 metrics=["accuracy"])
 
 model.summary()
+```
+
+#### If you want to Fine-tune the MobileNet models on a specific task rather than transfer learning then set trainable parameter to 'True'. This will retrain base model and finetune the weights for required task.
+
+```
+mobilenet_model.trainable = True  # unfreeze the base model
 ```
